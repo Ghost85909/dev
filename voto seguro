@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voto Seguro - Candidatos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="voto-seguro-icon.png" alt="Logo Voto Seguro" class="logo-icon">
+            <span>VOTO SEGURO</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="presentacion.html">Presentación</a></li>
+                <li class="active"><a href="candidatos.html">Candidatos</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li><a href="soporte.html">Soporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <form action="finalizado.html" method="POST" class="candidatos-form">
+            <h2>Candidatos</h2>
+            <p class="instruccion">Seleccione solo un candidato y haga clic en Votar.</p>
+
+            <label class="candidato-card">
+                <div class="info">
+                    <img src="avatar-placeholder.png" alt="Candidato 01" class="candidato-avatar">
+                    <span class="nombre">Candidato 01</span>
+                </div>
+                <input type="radio" name="voto_candidato" value="candidato_01" required>
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="candidato-card marcado">
+                <div class="info">
+                    <img src="avatar-placeholder.png" alt="Candidato 02" class="candidato-avatar">
+                    <span class="nombre">Candidato 02</span>
+                </div>
+                <input type="radio" name="voto_candidato" value="candidato_02" checked required>
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="candidato-card">
+                <div class="info">
+                    <img src="avatar-placeholder.png" alt="Candidato 03" class="candidato-avatar">
+                    <span class="nombre">Candidato 03</span>
+                </div>
+                <input type="radio" name="voto_candidato" value="candidato_03" required>
+                <span class="checkmark"></span>
+            </label>
+
+            <button type="submit" class="boton-votar">VOTAR</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Voto Seguro. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE CANDIDATOS --- */
+.candidatos-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.candidatos-form h2 {
+    text-align: center;
+    color: var(--color-principal);
+    margin-bottom: 30px;
+}
+
+.instruccion {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.candidato-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-borde-gris);
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+.candidato-card:hover {
+    border-color: var(--color-secundario);
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.1);
+}
+
+.candidato-card.marcado,
+.candidato-card input:checked + .checkmark {
+    border-color: var(--color-secundario);
+    background-color: var(--color-fondo-claro); /* Fondo ligeramente gris para marcado */
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.candidato-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #bdc3c7; /* Color de placeholder del boceto */
+    border: 2px solid var(--color-principal);
+    margin-right: 15px;
+    /* En el futuro, pondrías la foto real del candidato */
+}
+
+.nombre {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--color-principal);
+}
+
+/* Ocultar el radio button nativo */
+.candidato-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Estilo para el Checkmark (la casilla de verificación) */
+.checkmark {
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border: 2px solid var(--color-principal);
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Mostrar el checkmark cuando está seleccionado */
+.candidato-card input:checked ~ .checkmark {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+}
+
+.candidato-card input:checked ~ .checkmark:after {
+    content: "";
+    position: absolute;
+    display: block;
+    /* Dibujo del checkmark */
+    left: 55px; /* Ajusta la posición de inicio del check */
+    top: 50%; /* Centra verticalmente */
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg) translate(0, -50%); /* Rotación y ajuste */
+}
+
+/* El botón de VOTAR reutiliza el estilo del botón general */
+.boton-votar {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 30px;
+    display: block; /* Ocupa todo el ancho del formulario */
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.boton-votar:hover {
+    background-color: var(--color-secundario);
+}
