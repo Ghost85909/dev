@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voto Seguro - Iniciar Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <img src="voto-seguro-icon.png" alt="Logo Voto Seguro" class="logo-icon">
+                <h1>VOTO SEGURO</h1>
+            </div>
+            
+            <form action="candidatos.html" method="POST" class="login-form">
+                
+                <div class="form-group">
+                    <label for="usuario">USUARIO</label>
+                    <input type="text" id="usuario" name="usuario" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contrasena">CONTRASEÑA</label>
+                    <input type="password" id="contrasena" name="contrasena" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="documento">DNI O PASAPORTE</label>
+                    <input type="text" id="documento" name="documento" required>
+                </div>
+                
+                <button type="submit" class="boton-iniciar-sesion">INICIAR SESIÓN</button>
+            </form>
+            
+            <div class="enlace-olvidaste">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

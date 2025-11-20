@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voto Seguro - Resultados Oficiales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="voto-seguro-icon.png" alt="Logo Voto Seguro" class="logo-icon">
+            <span>VOTO SEGURO</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="presentacion.html">Presentación</a></li>
+                <li><a href="candidatos.html">Candidatos</a></li>
+                <li class="active"><a href="resultados.html">Resultados</a></li>
+                <li><a href="soporte.html">Soporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="seccion-resultados">
+            <h2>Resultados Oficiales de la Elección</h2>
+            
+            <div class="indicadores-clave">
+                <div class="indicador-card">
+                    <h3>Participación Total</h3>
+                    <span class="valor">85%</span>
+                </div>
+                <div class="indicador-card">
+                    <h3>Votos Emitidos</h3>
+                    <span class="valor">1,530,000</span>
+                </div>
+                <div class="indicador-card">
+                    <h3>Votos Válidos</h3>
+                    <span class="valor">99.5%</span>
+                </div>
+            </div>
+
+            <div class="graficos-container">
+                <div class="grafico-box">
+                    <h3>Resultados por Candidato</h3>
+                    <div class="grafico-barras">
+                        <div class="barra-contenedor">
+                            <span class="barra-etiqueta">Candidato 01 (3.3%)</span>
+                            <div class="barra" style="width: 3.3%;"></div>
+                        </div>
+                        <div class="barra-contenedor">
+                            <span class="barra-etiqueta">Candidato 02 (7.3%)</span>
+                            <div class="barra" style="width: 7.3%;"></div>
+                        </div>
+                        <div class="barra-contenedor ganador">
+                            <span class="barra-etiqueta">Candidato 03 (45.0%)</span>
+                            <div class="barra" style="width: 45.0%;"></div>
+                        </div>
+                        <div class="barra-contenedor">
+                            <span class="barra-etiqueta">Votos Nulos (44.4%)</span>
+                            <div class="barra nulo" style="width: 44.4%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grafico-box">
+                    <h3>Distribución de Votos</h3>
+                    <div class="grafico-anillo-contenedor">
+                        <div class="grafico-anillo">
+                            <div class="segmento ganador-anillo" style="--porcentaje: 45.0;"></div>
+                            <div class="segmento nulo-anillo" style="--porcentaje: 44.4; --offset: 45.0;"></div>
+                            <div class="segmento otro-anillo" style="--porcentaje: 10.6; --offset: 89.4;"></div>
+                            <div class="centro-anillo">Total</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="nota-auditoria">Los resultados son preliminares y están sujetos a la auditoría final pública.</p>
+            <a href="soporte.html" class="boton-auditoria-link">Verificar mi Voto y Auditoría</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Voto Seguro. Todos los derechos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

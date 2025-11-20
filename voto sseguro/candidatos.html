@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voto Seguro - Candidatos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="voto-seguro-icon.png" alt="Logo Voto Seguro" class="logo-icon">
+            <span>VOTO SEGURO</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="presentacion.html">Presentación</a></li>
+                <li class="active"><a href="candidatos.html">Candidatos</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li><a href="soporte.html">Soporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <form action="finalizado.html" method="POST" class="candidatos-form">
+            <h2>Candidatos</h2>
+            <p class="instruccion">Seleccione solo un candidato y haga clic en Votar.</p>
+
+            <label class="candidato-card">
+                <div class="info">
+                    <img src="avatar-placeholder.png" alt="Candidato 01" class="candidato-avatar">
+                    <span class="nombre">Candidato 01</span>
+                </div>
+                <input type="radio" name="voto_candidato" value="candidato_01" required>
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="candidato-card">
+                <div class="info">
+                    <img src="avatar-placeholder.png" alt="Candidato 02" class="candidato-avatar">
+                    <span class="nombre">Candidato 02</span>
+                </div>
+                <input type="radio" name="voto_candidato" value="candidato_02" required>
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="candidato-card">
+                <div class="info">
+                    <img src="avatar-placeholder.png" alt="Candidato 03" class="candidato-avatar">
+                    <span class="nombre">Candidato 03</span>
+                </div>
+                <input type="radio" name="voto_candidato" value="candidato_03" required>
+                <span class="checkmark"></span>
+            </label>
+
+            <button type="submit" class="boton-votar">VOTAR</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Voto Seguro. Todos los derechos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

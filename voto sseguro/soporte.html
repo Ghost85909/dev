@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voto Seguro - Soporte y Auditoría</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="voto-seguro-icon.png" alt="Logo Voto Seguro" class="logo-icon">
+            <span>VOTO SEGURO</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="presentacion.html">Presentación</a></li>
+                <li><a href="candidatos.html">Candidatos</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li class="active"><a href="soporte.html">Soporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="seccion-soporte">
+            <h2>Soporte y Auditoría de Voto</h2>
+            
+            <div class="faq-container">
+                <h3>Preguntas Frecuentes (FAQ)</h3>
+                
+                <div class="faq-item">
+                    <h4>1. ¿Cómo se garantiza el anonimato de mi voto?</h4>
+                    <p>Utilizamos una técnica de cifrado que separa su identidad (DNI/usuario) de su elección de candidato. Solo su elegibilidad es verificada; su decisión es cifrada y anónima.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>2. ¿Mi voto puede ser hackeado o cambiado?</h4>
+                    <p>El sistema utiliza múltiples capas de seguridad y criptografía avanzada. Una vez emitido, el voto es inmutable y está protegido contra cualquier alteración externa o interna.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>3. ¿Dónde puedo verificar que mi voto fue contado?</h4>
+                    <p>Use el código de auditoría que recibió en la pantalla de "Voto Finalizado" en la sección de **Verificación de Voto** a continuación.</p>
+                </div>
+            </div>
+
+            <div class="auditoria-box">
+                <h3>Verificación de Voto Individual</h3>
+                <p>Ingrese su Código de Auditoría para confirmar que su voto se encuentra en el registro público de la elección.</p>
+                
+                <div class="verificacion-input-group">
+                    <input type="text" placeholder="Código de Auditoría (ej: AB98-CD76...)" class="input-codigo">
+                    <button class="boton-buscar">Buscar Voto</button>
+                </div>
+
+                <div id="resultado-verificacion" class="resultado-vacio">
+                    Esperando código...
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Voto Seguro. Todos los derechos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

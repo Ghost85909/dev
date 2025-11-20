@@ -1,0 +1,584 @@
+/* styles.css - ESTILOS BASE Y LOGIN */
+
+/* --- VARIABLES Y RESETEO GENERAL --- */
+:root {
+    --color-principal: #2c3e50;      /* Azul oscuro (Texto y Botones) */
+    --color-secundario: #3498db;     /* Azul claro (Activos y Enlaces) */
+    --color-fondo-claro: #f4f7f6;    /* Fondo de la App */
+    --color-borde-gris: #ddd;        /* Bordes sutiles */
+    --color-sombra: rgba(0, 0, 0, 0.15); /* Sombra para el formulario */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo-claro);
+    color: var(--color-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Centra el contenido verticalmente en toda la pantalla */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--color-sombra);
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE CANDIDATOS --- */
+.candidatos-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.candidatos-form h2 {
+    text-align: center;
+    color: var(--color-principal);
+    margin-bottom: 30px;
+}
+
+.instruccion {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.candidato-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-borde-gris);
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+.candidato-card:hover {
+    border-color: var(--color-secundario);
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.1);
+}
+
+.candidato-card.marcado,
+.candidato-card input:checked + .checkmark {
+    border-color: var(--color-secundario);
+    background-color: var(--color-fondo-claro); /* Fondo ligeramente gris para marcado */
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.candidato-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #bdc3c7; 
+    border: 2px solid var(--color-principal);
+    margin-right: 15px;
+}
+
+.nombre {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--color-principal);
+}
+
+/* Ocultar el radio button nativo */
+.candidato-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Estilo para el Checkmark (la casilla de verificación) */
+.checkmark {
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border: 2px solid var(--color-principal);
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Mostrar el checkmark cuando está seleccionado */
+.candidato-card input:checked ~ .checkmark {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+}
+
+.candidato-card input:checked ~ .checkmark:after {
+    content: "";
+    position: absolute;
+    display: block;
+    /* Dibujo del checkmark */
+    right: 30px; 
+    top: 50%; 
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg) translate(0, -50%); /* Rotación y ajuste */
+}
+
+/* El botón de VOTAR reutiliza el estilo del botón general */
+.boton-votar {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 30px;
+    display: block; /* Ocupa todo el ancho del formulario */
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.boton-votar:hover {
+    background-color: var(--color-secundario);
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE VOTO FINALIZADO --- */
+.voto-finalizado-box {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--color-sombra);
+    text-align: center;
+}
+
+.finalizado-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.voto-finalizado-box h2 {
+    color: var(--color-secundario); 
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.detalle-voto {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px dashed var(--color-borde-gris);
+    border-radius: 8px;
+    background-color: var(--color-fondo-claro);
+}
+
+.candidato-elegido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.candidato-avatar-final {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #bdc3c7;
+    border: 3px solid var(--color-principal);
+}
+
+#candidato-voto-id {
+    font-weight: 700;
+    font-size: 1.5em;
+    color: var(--color-principal);
+}
+
+.mensaje-confianza {
+    font-style: italic;
+    color: var(--color-principal);
+    margin: 30px 0;
+    font-size: 1.1em;
+}
+
+.auditoria-info {
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.codigo-auditoria {
+    font-weight: 700;
+    color: var(--color-principal);
+    font-size: 1.2em;
+}
+
+.boton-resultados {
+    display: block;
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-resultados:hover {
+    background-color: #2980b9;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE PRESENTACIÓN --- */
+.seccion-presentacion {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.seccion-presentacion h2 {
+    color: var(--color-principal);
+    font-size: 2.2em;
+    margin-bottom: 15px;
+}
+
+.introduccion {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.principios {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.principio-card {
+    flex: 1;
+    background-color: var(--color-fondo-claro);
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 5px solid var(--color-secundario);
+    box-shadow: 0 2px 5px var(--color-sombra);
+    text-align: left;
+}
+
+.principio-card h4 {
+    color: var(--color-principal);
+    font-size: 1.25em;
+    margin-top: 0;
+    border-bottom: 1px solid var(--color-borde-gris);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.boton-iniciar-voto {
+    display: inline-block;
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.boton-iniciar-voto:hover {
+    background-color: #2980b9;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE SOPORTE/AUDITORÍA --- */
+.seccion-soporte {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.seccion-soporte h2 {
+    text-align: center;
+    color: var(--color-principal);
+    font-size: 2.2em;
+    margin-bottom: 40px;
+}
+
+/* Estilo para la sección FAQ */
+.faq-container {
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 1px solid var(--color-borde-gris);
+    border-radius: 8px;
+    background-color: var(--color-fondo-claro);
+}
+
+.faq-container h3 {
+    color: var(--color-principal);
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h4 {
+    color: var(--color-secundario);
+    font-size: 1.15em;
+    margin-bottom: 5px;
+}
+
+/* Estilo para la sección de Auditoría */
+.auditoria-box {
+    padding: 30px;
+    border: 1px solid var(--color-borde-gris);
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px var(--color-sombra);
+}
+
+.auditoria-box h3 {
+    color: var(--color-principal);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.verificacion-input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.input-codigo {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid var(--color-borde-gris);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.boton-buscar {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-buscar:hover {
+    background-color: var(--color-secundario);
+}
+
+.resultado-vacio {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    color: #999;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE RESULTADOS --- */
+.seccion-resultados {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.seccion-resultados h2 {
+    text-align: center;
+    color: var(--color-principal);
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
+
+/* Indicadores Clave */
+.indicadores-clave {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.indicador-card {
+    flex: 1;
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.indicador-card h3 {
+    margin: 0;
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+.indicador-card .valor {
+    display: block;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+/* Contenedores de Gráficos */
+.graficos-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.grafico-box {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--color-sombra);
+}
+
+.grafico-box h3 {
+    color: var(--color-principal);
+    border-bottom: 1px solid var(--color-borde-gris);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilos para Gráfico de Barras */
+.grafico-barras {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.barra-contenedor {
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-etiqueta {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.barra {
+    height: 25px;
+    background-color: var(--color-secundario);
+    border-radius: 4px;
+    transition: width 1s ease-out;
+}
+
+.barra-contenedor.ganador .barra {
+    background-color: var(--color-principal); /* Destacar al ganador */
+}
+
+.barra.nulo {
+    background-color: #a0a0a0; /* Gris para votos nulos */
+}
+
+/* Estilos para Gráfico de Anillo (Donut Chart - Simplificado con CSS) */
+/* Nota: Se usan variables CSS para simular los segmentos */
+.grafico-anillo-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    position: relative;
+}
+
+.grafico-anillo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #eee;
+    position: relative;
+    clip-path: circle(50%);
+}
+
+.segmento {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(var(--offset) * 3.6deg));
+    background: conic-gradient(
+        var(--color) 0deg, 
+        var(--color) calc(var(--porcentaje) * 3.6deg), 
+        transparent calc(var(--porcentaje) * 3.6deg) 360deg
+    );
+}
+
+.ganador-anillo { --color: var(--color-principal); }
+.nulo-anillo { --color: #a0a0a0; }
+.otro-anillo { --color: #ddd; }
+
+
+.centro-anillo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: var(--color-principal);
+    font-size: 1.1em;
+}
+
+.nota-auditoria {
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic;
+    color: #888;
+}
+
+.boton-auditoria-link {
+    display: block;
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #2ecc71; /* Un color de acción/verde */
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-auditoria-link:hover {
+    background-color: #27ae60;
+}
